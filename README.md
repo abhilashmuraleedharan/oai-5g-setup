@@ -33,6 +33,7 @@ sudo ./install_docker.sh
 ```bash
 cd ~
 git clone --branch v2.0.1 https://gitlab.eurecom.fr/oai/cn5g/oai-cn5g-fed.git
+cd ~/oai-5g-setup/
 sudo ./install_oai_5g_core.sh
 ```
 
@@ -49,7 +50,8 @@ script to use `docker compose` command instead of `docker-compose` command.
 #### Step 4: Install OAI 5G RAN
 ```bash
 cd ~
-git clone git clone https://gitlab.eurecom.fr/oai/openairinterface5g.git
+git clone https://gitlab.eurecom.fr/oai/openairinterface5g.git
+cd ~/oai-5g-setup/
 sudo ./install_oai_5g_ran.sh
 ```
 Note: This step will take a while to execute. Wait for the script to exit gracefully
