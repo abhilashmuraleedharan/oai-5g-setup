@@ -34,18 +34,3 @@ sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plug
 
 echo ">>> Verifying whether docker is installed properly"
 sudo docker run hello-world
-
-echo ">>> Enable managing Docker as a non root user"
-# Create the docker group
-sudo groupadd docker
-# Add your user to the docker group
-sudo usermod -aG docker $USER
-newgrp docker
-#Verify that you can run docker commands without sudo.
-docker run hello-world
-   
-# Configure Docker to start on boot
-sudo systemctl enable docker.service
-sudo systemctl enable containerd.service
-
-echo "Docker engine and associated packages installed successfully"

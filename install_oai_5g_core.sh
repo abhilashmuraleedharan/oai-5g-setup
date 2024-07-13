@@ -41,7 +41,6 @@ pull_docker_images() {
         "oaisoftwarealliance/oai-upf-vpp:v2.0.1"
         "oaisoftwarealliance/oai-nssf:v2.0.1"
         "oaisoftwarealliance/oai-pcf:v2.0.1"
-        "oaisoftwarealliance/oai-nef:v2.0.1"
         "oaisoftwarealliance/trf-gen-cn5g:latest"
     )
 
@@ -70,11 +69,7 @@ else
     exit 1
 fi
 
-# Clone the OAI core network source code from gitlab to your PC (home location)
-echo ">>> Cloning OAI Core Network Source Code and initiate installation procedures"
-cd ~
-git clone --branch v2.0.1 https://gitlab.eurecom.fr/oai/cn5g/oai-cn5g-fed.git
-cd oai-cn5g-fed
+cd ~/oai-cn5g-fed/
 # Checkout the source code to latest version (i.e., v2.0.1 as on 10 Feb 2024)
 git checkout -f v2.0.1
 # Synchronize all git submodules
@@ -83,6 +78,4 @@ git checkout -f v2.0.1
 sudo sysctl net.ipv4.conf.all.forwarding=1
 sudo iptables -P FORWARD ACCEPT
 
-echo ">>> Installation of complete. Test the setup by bringing up core"
-cd oai-cn5g-fed/docker-compose
-python3 core-network.py --type start-basic --scenario 1
+echo ">>> Installation of 5G core is complete. Test the setup by bringing up core"
