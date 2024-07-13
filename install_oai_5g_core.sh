@@ -69,7 +69,7 @@ else
     exit 1
 fi
 
-cd ~/oai-cn5g-fed/
+cd ../oai-cn5g-fed/
 # Checkout the source code to latest version (i.e., v2.0.1 as on 10 Feb 2024)
 git checkout -f v2.0.1
 # Synchronize all git submodules
