@@ -1,4 +1,6 @@
-# OAI 5G Setup
+# OAI 5G Core Lab Setup Guide
+
+This repository is created as a guide for setting up your own OpenAirInterface (OAI) 5G Core Lab. It includes detailed instructions and scripts to help you deploy the OAI 5G Core on an AWS instance, configure the network components, and run experiments. The goal is to provide a comprehensive resource for anyone looking to explore and experiment with 5G network technologies using OAI.
 
 ### Prerequisites
 Before proceeding with the installation, ensure your system meets the following requirements:
