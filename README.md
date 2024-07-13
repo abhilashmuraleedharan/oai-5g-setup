@@ -32,3 +32,15 @@ Verify all the core components are running fine by checking the output of `docke
 ```bash
 sudo ./install_oai_5g_ran.sh
 ```
+
+### Notes
+
+The steps mentioned in this repository are as per the releases and tags available in February 2024.
+
+### Contributions
+
+We welcome contributions from the community! Please refer to the Contributing Guide for more details.
+
+### License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
