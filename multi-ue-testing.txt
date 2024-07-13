@@ -1,0 +1,29 @@
+Steps to test with multiple UEs
+=================================
+
+a) To bring up the OAI Core Network
+cd /home/ubuntu/oai-cn5g-fed/docker-compose
+python3 core-network.py --type start-basic --scenario 1
+
+b) To bring up an OAI-gNodeB
+cd ~/openairinterface5g/cmake_targets/ran_build/build/
+sudo ./nr-softmodem -O ../../../targets/PROJECTS/GENERIC-NR-5GC/CONF/gnb.sa.band78.fr1.106PRB.usrpb210.conf -E --rfsim --rfsimulator.serveraddr server --sa --gNBs.[0].min_rxtxtime 6
+
+c) Create individual namespace for UE1 and bring up UE1
+cd ~/openairinterface5g/cmake_targets/ran_build/build/
+sudo ./multi-ue.sh -c1 -e
+sudo ./nr-uesoftmodem -r 106 --numerology 1 --band 78 -C 3619200000 --rfsim --rfsimulator.serveraddr 10.201.1.100 --sa -E -O ../../../targets/PROJECTS/GENERIC-NR-5GC/CONF/ue.conf
+
+d) Create individual namespace for UE2 and bring up UE2
+cd ~/openairinterface5g/cmake_targets/ran_build/build/
+sudo ./multi-ue.sh -c2 -e
+sudo ./nr-uesoftmodem -r 106 --numerology 1 --band 78 -C 3619200000 --rfsim --rfsimulator.serveraddr 10.202.1.100 --sa -E -O ../../../targets/PROJECTS/GENERIC-NR-5GC/CONF/ue2.conf
+
+e) Create individual namespace for UE2 and bring up UE3
+cd ~/openairinterface5g/cmake_targets/ran_build/build/
+sudo ./multi-ue.sh -c3 -e
+sudo ./nr-uesoftmodem -r 106 --numerology 1 --band 78 -C 3619200000 --rfsim --rfsimulator.serveraddr 10.203.1.100 --sa -E -O ../../../targets/PROJECTS/GENERIC-NR-5GC/CONF/ue3.conf
+
+f) To shut down the OAI Core Network
+cd /home/ubuntu/oai-cn5g-fed/docker-compose
+python3 core-network.py --type stop-basic --scenario 1
