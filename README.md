@@ -1,19 +1,31 @@
 # OAI 5G Setup
 
-## Prerequisites
-
+### Prerequisites
 Before proceeding with the installation, ensure your system meets the following requirements:
 
 - **Operating System**: Ubuntu 22.04 LTS Laptop/Desktop/Server for OAI CN5G and OAI gNB
 - **CPU**: 8 cores x86_64 @ 3.5 GHz (supports AVX2)
 - **RAM**: 32 GB
-  
+
 To check if your CPU supports AVX2, run:
 ```bash
 lscpu | grep avx2
 ```
 The user should have sudo privileges
 
+### Using an EC2 Instance
+If your machine doesn't have the required specifications, you can set up an Ubuntu EC2 instance in the cloud. Follow this [YouTube tutorial](https://www.youtube.com/watch?v=osqZnijkhtE) to understand how to set up your own Ubuntu EC2 instance.
+
+#### Recommended Settings for EC2 Instance for OAI Lab:
+1. **Choose `Ubuntu 22.04 LTS`** instead of the latest one.
+2. **Instance Type**: Select `t2.2xlarge`.
+3. **Key Pair**: Choose `ED25519`.
+4. **Security Group**: Allow SSH traffic from anywhere.
+
+Keep the key file you downloaded in your user's `.ssh` folder and opt for X11 Forwarding in your SSH client (e.g., MobaXterm) before starting an SSH session.
+
+### Initial Setup
+Once you have logged into the server using ssh, you can follow the installation steps give below.
 
 ### Installation Steps
 
