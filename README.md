@@ -25,7 +25,7 @@ If your machine doesn't have the required specifications, you can set up an Ubun
 Keep the key file you downloaded in your user's `.ssh` folder and opt for X11 Forwarding in your SSH client (e.g., MobaXterm) before starting an SSH session.
 
 ### Initial Setup
-Once you have logged into the server using ssh, you can follow the installation steps give below.
+Once you have logged into your ubuntu server using ssh, you can follow the installation steps give below.
 
 ### Installation Steps
 
