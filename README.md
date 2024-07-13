@@ -17,18 +17,25 @@ The user should have sudo privileges
 
 ### Installation Steps
 
-#### Step 1: Install Docker
+#### Step 1: Clone this repo and cd into it
+```bash
+cd ~
+git clone https://github.com/abhilashmuraleedharan/oai-5g-setup.git
+cd oai-5g-setup
+```
+
+#### Step 2: Install Docker
 ```bash
 sudo ./install_docker.sh
 ```
 
-#### Step 2: Install OAI 5G Core
+#### Step 3: Install OAI 5G Core
 ```bash
 sudo ./install_oai_5g_core.sh
 ```
 Verify all the core components are running fine by checking the output of `docker ps`
 
-#### Step 3: Install OAI 5G RAN
+#### Step 4: Install OAI 5G RAN
 ```bash
 sudo ./install_oai_5g_ran.sh
 ```
