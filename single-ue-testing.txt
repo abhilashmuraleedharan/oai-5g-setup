@@ -1,0 +1,51 @@
+Steps to test with a single UE
+
+a) To bring up the OAI Core Network
+cd /home/ubuntu/oai-cn5g-fed/docker-compose
+python3 core-network.py --type start-basic --scenario 1
+
+b) To bring up an OAI-gNodeB
+cd ~/openairinterface5g/cmake_targets/ran_build/build/
+sudo ./nr-softmodem -O ../../../targets/PROJECTS/GENERIC-NR-5GC/CONF/gnb.sa.band78.fr1.106PRB.usrpb210.conf -E --rfsim --rfsimulator.serveraddr server --sa --gNBs.[0].min_rxtxtime 6
+
+c) To bring up an OAI-UE
+cd ~/openairinterface5g/cmake_targets/ran_build/build/
+sudo ./nr-uesoftmodem -r 106 --numerology 1 --band 78 -C 3619200000 --rfsim --rfsimulator.serveraddr 127.0.0.1 --sa -E -O ../../../targets/PROJECTS/GENERIC-NR-5GC/CONF/ue.conf --nokrnmod 1 -d
+
+d) To shut down the OAI Core Network
+cd /home/ubuntu/oai-cn5g-fed/docker-compose
+python3 core-network.py --type stop-basic --scenario 1
+
+
+To perform downlink speed test: 
+--------------------------------
+   (Remember to replace 12.1.1.130 with the UE's current assigned IP (oaitun_ue1 IP) in below steps)
+
+1. Configure iPerf to measure download speeds of UE by running it in server mode where UE is running
+   iperf3 -s -i1
+   
+2. Inside oai-ext-dn container (run iperf as a client to push data towards UE)
+   docker exec -it oai-ext-dn bash
+   iperf3 -c 12.1.1.130 -B 192.168.70.135 -i 1 -t 120
+   
+To perform uplink speed test:
+-----------------------------
+   (Remember to replace 12.1.1.130 with the UE's current assigned IP (oaitun_ue1 IP) in below steps)
+   
+1. Configure iPerf to push data using UE towards oai-ext-dn container by running it as a client
+   iperf3 -c 192.168.70.135 -B 12.1.1.130 -i1
+   
+2. Inside oai-ext-dn container (run iperf as a server to listen to data pushed by UE)
+   docker exec -it oai-ext-dn bash
+   iperf3 -s -B 192.168.70.135
+   
+   
+To build code after making custom code changes in your local repository
+------------------------------------------------------------------------
+1. For any oai-gNB, oai-UE, and RF code changes
+   cd ~/openairinterface5g/cmake_targets/
+   sudo ./build_oai --gNB --nrUE --build-lib nrscope
+   cd ran_build/build
+   sudo make rfsimulator
+   
+2. For any oai-CORE NF code changes, we will have to do a new docker image build for that NF and then use that image instead of the pulled image.
