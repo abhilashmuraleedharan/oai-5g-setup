@@ -12,8 +12,8 @@ To check if your CPU supports AVX2, run:
 ```bash
 lscpu | grep avx2
 ```
-
 The user should have sudo privileges
+
 
 ### Installation Steps
 
@@ -28,7 +28,7 @@ sudo ./install_oai_5g_core.sh
 ```
 Verify all the core components are running fine by checking the output of `docker ps`
 
-#### Step 3: Install OAI 5G Core
+#### Step 3: Install OAI 5G RAN
 ```bash
 sudo ./install_oai_5g_ran.sh
 ```
