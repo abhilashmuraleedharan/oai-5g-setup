@@ -90,7 +90,9 @@ sudo make rfsimulator
 ```
 You should see the `nr-softmodem` and `nr-uesoftmodem` executables after compilation in the `build` directory
 
-The Setup is now ready to do an E2E flow.
+Exit or close the current terminal window. Login to the server by opening a fresh terminal session.
+
+The Setup is now ready to do an E2E flow. Refer the Testing Steps.txt file for more details.
 
 ### Notes
 
