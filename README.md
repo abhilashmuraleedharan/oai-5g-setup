@@ -31,14 +31,28 @@ sudo ./install_docker.sh
 
 #### Step 3: Install OAI 5G Core
 ```bash
+cd ~
+git clone --branch v2.0.1 https://gitlab.eurecom.fr/oai/cn5g/oai-cn5g-fed.git
 sudo ./install_oai_5g_core.sh
+```
+
+Start the core by executing below steps
+```bash
+cd oai-cn5g-fed/docker-compose
+python3 core-network.py --type start-basic --scenario 1
 ```
 Verify all the core components are running fine by checking the output of `docker ps`
 
+Note: If the Ubuntu OS version is later than 22.04 then you will need to update the `core-network.py`
+script to use `docker compose` command instead of `docker-compose` command. 
+
 #### Step 4: Install OAI 5G RAN
 ```bash
+cd ~
+git clone git clone https://gitlab.eurecom.fr/oai/openairinterface5g.git
 sudo ./install_oai_5g_ran.sh
 ```
+Note: This step will take a while to execute. Wait for the script to exit gracefully
 
 ### Notes
 
