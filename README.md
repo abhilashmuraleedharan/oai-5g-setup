@@ -1,2 +1,34 @@
-# oai-5g-setup
-OAI 5G RAN and 5G Core Installation Scripts
+# OAI 5G Setup
+
+## Prerequisites
+
+Before proceeding with the installation, ensure your system meets the following requirements:
+
+- **Operating System**: Ubuntu 22.04 LTS Laptop/Desktop/Server for OAI CN5G and OAI gNB
+- **CPU**: 8 cores x86_64 @ 3.5 GHz (supports AVX2)
+- **RAM**: 32 GB
+  
+To check if your CPU supports AVX2, run:
+```bash
+lscpu | grep avx2
+```
+
+The user should have sudo privileges
+
+### Installation Steps
+
+#### Step 1: Install Docker
+```bash
+sudo ./install_docker.sh
+```
+
+#### Step 2: Install OAI 5G Core
+```bash
+sudo ./install_oai_5g_core.sh
+```
+Verify all the core components are running fine by checking the output of `docker ps`
+
+#### Step 3: Install OAI 5G Core
+```bash
+sudo ./install_oai_5g_ran.sh
+```
