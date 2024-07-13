@@ -51,10 +51,20 @@ script to use `docker compose` command instead of `docker-compose` command.
 ```bash
 cd ~
 git clone https://gitlab.eurecom.fr/oai/openairinterface5g.git
-cd ~/oai-5g-setup/
-sudo ./install_oai_5g_ran.sh
+cd openairinterface5g
+git checkout develop
+source oaienv
+sudo apt-get install -y libforms-dev
+sudo apt-get install -y zlib1g-dev
+cd cmake_targets
+sudo ./build_oai -I
+sudo ./build_oai --gNB --nrUE --build-lib nrscope
+cd ran_build/build
+sudo make rfsimulator
 ```
-Note: This step will take a while to execute. Wait for the script to exit gracefully
+You should see the nr-softmodem and nr-uesoftmodem executables after compilation in the build directory
+
+The Setup is now ready to do an E2E flow.
 
 ### Notes
 
