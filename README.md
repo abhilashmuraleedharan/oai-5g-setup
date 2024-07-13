@@ -62,7 +62,7 @@ sudo ./build_oai --gNB --nrUE --build-lib nrscope
 cd ran_build/build
 sudo make rfsimulator
 ```
-You should see the nr-softmodem and nr-uesoftmodem executables after compilation in the build directory
+You should see the `nr-softmodem` and `nr-uesoftmodem` executables after compilation in the `build` directory
 
 The Setup is now ready to do an E2E flow.
 
