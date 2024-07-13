@@ -27,7 +27,19 @@ cd oai-5g-setup
 #### Step 2: Install Docker
 ```bash
 sudo ./install_docker.sh
+
+# Create the docker group
+sudo groupadd docker
+
+# Add your user to the docker group
+sudo usermod -aG docker $USER
+newgrp docker
+
+# Configure Docker to start on boot
+sudo systemctl enable docker.service
+sudo systemctl enable containerd.service
 ```
+Test the installation by running `docker run hello-world`
 
 #### Step 3: Install OAI 5G Core
 ```bash
