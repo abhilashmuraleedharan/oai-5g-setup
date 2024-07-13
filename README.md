@@ -39,7 +39,7 @@ sudo ./install_oai_5g_core.sh
 
 Start the core by executing below steps
 ```bash
-cd oai-cn5g-fed/docker-compose
+cd ~/oai-cn5g-fed/docker-compose
 python3 core-network.py --type start-basic --scenario 1
 ```
 Verify all the core components are running fine by checking the output of `docker ps`
