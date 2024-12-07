@@ -97,7 +97,7 @@ The Setup is now ready to do an E2E flow. The `single-ue-testing.txt` file is a 
 
 ### Notes
 
-The steps mentioned in this repository are as per the releases and tags available in February 2024.
+The steps mentioned in this repository are as per the releases and tags available in [Openairinterface 5G Project](https://gitlab.eurecom.fr/oai/openairinterface5g) on February 2024.
 
 ### Contributions
 
