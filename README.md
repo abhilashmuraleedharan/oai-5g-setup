@@ -34,6 +34,7 @@ Once you have logged into your ubuntu server using ssh, you can follow the insta
 #### Step 1: Clone this repo and cd into it
 ```bash
 cd ~
+sudo apt install git
 git clone https://github.com/abhilashmuraleedharan/oai-5g-setup.git
 cd oai-5g-setup
 ```
@@ -53,7 +54,7 @@ newgrp docker
 sudo systemctl enable docker.service
 sudo systemctl enable containerd.service
 ```
-Test the installation by running `docker run hello-world`
+Reboot and test the installation by running `docker run hello-world`. 
 
 #### Step 3: Install OAI 5G Core
 ```bash
