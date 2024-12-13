@@ -22,7 +22,7 @@ If your machine doesn't have the required specifications, you can set up an Ubun
 1. **Choose `Ubuntu 22.04 LTS`** instead of the latest one.
 2. **Instance Type**: Select `t2.2xlarge`.
 3. **Key Pair**: Choose `ED25519`.
-4. **Security Group**: Allow SSH traffic from anywhere.
+4. **Security Group**: Allow SSH traffic from anywhere. Note: You can limit the allowed ssh traffic to your instance if you got a static IP address to configure.
 
 Keep the key file you downloaded in your user's `.ssh` folder and opt for X11 Forwarding in your SSH client (e.g., MobaXterm) before starting an SSH session.
 
