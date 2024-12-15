@@ -31,16 +31,16 @@ docker_login() {
 pull_docker_images() {
     IMAGES=(
         "mysql:8.0"
-        "oaisoftwarealliance/oai-amf:v2.0.1"
-        "oaisoftwarealliance/oai-nrf:v2.0.1"
-        "oaisoftwarealliance/oai-upf:v2.0.1"
-        "oaisoftwarealliance/oai-smf:v2.0.1"
-        "oaisoftwarealliance/oai-udr:v2.0.1"
-        "oaisoftwarealliance/oai-udm:v2.0.1"
-        "oaisoftwarealliance/oai-ausf:v2.0.1"
-        "oaisoftwarealliance/oai-upf-vpp:v2.0.1"
-        "oaisoftwarealliance/oai-nssf:v2.0.1"
-        "oaisoftwarealliance/oai-pcf:v2.0.1"
+        "oaisoftwarealliance/oai-amf:develop"
+        "oaisoftwarealliance/oai-nrf:develop"
+        "oaisoftwarealliance/oai-upf:develop"
+        "oaisoftwarealliance/oai-smf:develop"
+        "oaisoftwarealliance/oai-udr:develop"
+        "oaisoftwarealliance/oai-udm:develop"
+        "oaisoftwarealliance/oai-ausf:develop"
+        "oaisoftwarealliance/oai-upf-vpp:develop"
+        "oaisoftwarealliance/oai-nssf:develop"
+        "oaisoftwarealliance/oai-pcf:develop"
         "oaisoftwarealliance/trf-gen-cn5g:latest"
     )
 
@@ -70,8 +70,8 @@ else
 fi
 
 cd ../oai-cn5g-fed/
-# Checkout the source code to latest version (i.e., v2.0.1 as on 10 Feb 2024)
-git checkout -f v2.0.1
+# Checkout your own branch from develop branch
+git checkout -b my-develop
 # Synchronize all git submodules
 ./scripts/syncComponents.sh
 # Enable packet forwarding

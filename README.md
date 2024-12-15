@@ -54,12 +54,12 @@ newgrp docker
 sudo systemctl enable docker.service
 sudo systemctl enable containerd.service
 ```
-Reboot and test the installation by running `docker run hello-world`. 
+Reboot and check whether docker service is running after system restart by executing `docker run hello-world`. 
 
 #### Step 3: Install OAI 5G Core
 ```bash
 cd ~
-git clone --branch v2.0.1 https://gitlab.eurecom.fr/oai/cn5g/oai-cn5g-fed.git
+git clone --branch develop https://gitlab.eurecom.fr/oai/cn5g/oai-cn5g-fed.git
 cd ~/oai-5g-setup/
 sudo ./install_oai_5g_core.sh
 ```
